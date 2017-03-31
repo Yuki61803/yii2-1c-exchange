@@ -13,6 +13,9 @@ class ExchangeModule extends \yii\base\Module
     public $controllerNamespace = 'Yuki61803\exchange1c\controllers';
     public $productClass;
     public $documentClass;
+    public $debug = false;
+    public $useZip = true;
+    public $tmpDir = '@runtime/1c_exchange';
 
     /**
      * @inheritdoc

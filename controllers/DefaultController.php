@@ -3,11 +3,13 @@
 namespace Yuki61803\exchange1c\controllers;
 
 use Yuki61803\exchange1c\behaviors\BomBehavior;
+use Yuki61803\exchange1c\ExchangeEvent;
 use Yuki61803\exchange1c\ExchangeModule;
 use Yuki61803\exchange1c\helpers\ByteHelper;
 use Yuki61803\exchange1c\interfaces\DocumentInterface;
 use Yuki61803\exchange1c\interfaces\ProductInterface;
 use Yii;
+use yii\base\Event;
 use yii\base\Exception;
 use yii\db\ActiveRecord;
 use yii\filters\auth\HttpBasicAuth;
@@ -25,6 +27,8 @@ use Zenwalker\CommerceML\Model\Property;
 class DefaultController extends Controller
 {
     public $enableCsrfValidation = false;
+    const EVENT_AFTER_UPDATE = 'afterUpdate';
+    const EVENT_AFTER_SYNC = 'afterSync';
 
     public function init()
     {
@@ -155,6 +159,11 @@ class DefaultController extends Controller
         //
     }
 
+    public function afterSync()
+    {
+        $this->module->trigger(self::EVENT_AFTER_SYNC);
+    }
+
     public function parsing($import, $offers)
     {
         $commerce = new CommerceML();
@@ -166,10 +175,12 @@ class DefaultController extends Controller
             }
             $this->parseProduct($model, $product);
         }
+        $this->afterSync();
     }
 
     public function actionLoad()
     {
+        set_time_limit(0);
         $import = self::getTmpDir() . DIRECTORY_SEPARATOR . 'import.xml';
         $offers = self::getTmpDir() . DIRECTORY_SEPARATOR . 'offers.xml';
         $this->parsing($import, $offers);
@@ -292,10 +303,17 @@ class DefaultController extends Controller
                     }
             }
         }
-
         $this->parseCost($model, $product->price);
         $this->parseImage($model, $product->images);
         $model->save();
+        $this->afterUpdate($model);
+    }
+
+    public function afterUpdate($model)
+    {
+        $event = new ExchangeEvent();
+        $event->model = $model;
+        $this->module->trigger(self::EVENT_AFTER_UPDATE, $event);
     }
 
     /**

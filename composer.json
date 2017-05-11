@@ -10,7 +10,7 @@
   ],
   "require": {
     "yiisoft/yii2": "^2.0",
-    "Yuki61803/commerceml": "@dev"
+    "Yuki61803/commerceml": "^0.1.0"
   },
   "autoload": {
     "psr-4": {

@@ -15,6 +15,8 @@ class ExchangeModule extends \yii\base\Module
     public $controllerNamespace = 'Yuki61803\exchange1c\controllers';
     public $productClass;
     public $documentClass;
+    public $groupClass;
+    public $partnerClass;
     /**
      * Обмен документами
      *

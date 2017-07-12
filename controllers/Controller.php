@@ -15,6 +15,8 @@ use yii\filters\auth\HttpBasicAuth;
  */
 abstract class Controller extends \yii\web\Controller
 {
+    public $layout = '@vendor/Yuki61803/yii2-1c-exchange/views/layouts/main';
+
     public function behaviours()
     {
         if (\Yii::$app->user->isGuest) {

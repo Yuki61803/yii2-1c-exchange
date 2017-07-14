@@ -2,6 +2,10 @@
 
 namespace Yuki61803\exchange1c;
 
+use Yuki61803\exchange1c\interfaces\DocumentInterface;
+use Yuki61803\exchange1c\interfaces\GroupInterface;
+use Yuki61803\exchange1c\interfaces\PartnerInterface;
+use Yuki61803\exchange1c\interfaces\ProductInterface;
 use yii\helpers\FileHelper;
 
 /**
@@ -13,9 +17,21 @@ class ExchangeModule extends \yii\base\Module
      * @inheritdoc
      */
     public $controllerNamespace = 'Yuki61803\exchange1c\controllers';
+    /**
+     * @var ProductInterface
+     */
     public $productClass;
+    /**
+     * @var DocumentInterface
+     */
     public $documentClass;
+    /**
+     * @var GroupInterface
+     */
     public $groupClass;
+    /**
+     * @var PartnerInterface
+     */
     public $partnerClass;
     /**
      * Обмен документами

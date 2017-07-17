@@ -17,6 +17,9 @@
       "Yuki61803\\exchange1c\\": ""
     }
   },
+  "extra": {
+    "bootstrap": "Yuki61803\\exchange1c\\Bootstrap"
+  },
   "require-dev": {
     "yiidoc/yii2-redactor": "^2.0"
   }

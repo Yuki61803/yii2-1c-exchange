@@ -8,7 +8,7 @@ namespace Yuki61803\exchange1c\interfaces;
 interface OfferInterface extends FieldsInterface
 {
     /**
-     * @return \Zenwalker\CommerceML\Model\Group
+     * @return GroupInterface
      */
     public function getGroup1c();
 }

@@ -1,0 +1,19 @@
+<?php
+
+namespace Yuki61803\exchange1c\widgets;
+
+use yii\base\Widget;
+
+class Panel extends Widget
+{
+    public function init()
+    {
+        ob_start();
+        ob_implicit_flush(false);
+    }
+
+    public function run()
+    {
+        echo \Yii::$app->getView()->render('@vendor/Yuki61803/yii2-1c-exchange/views/widgets/panel', ['content' => ob_get_clean()], $this);
+    }
+}

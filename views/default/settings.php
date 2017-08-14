@@ -1,11 +1,13 @@
 <?php
+
 use yii\widgets\DetailView;
+use Yuki61803\exchange1c\widgets\Panel;
 
 /**
  * @var \yii\web\View $this
  */
 $this->title = 'Настройки модуля';
-
+Panel::begin();
 echo DetailView::widget([
     'model' => Yii::$app->controller->module,
     'attributes' => [
@@ -21,3 +23,4 @@ echo DetailView::widget([
         'timeLimit'
     ]
 ]);
+Panel::end();

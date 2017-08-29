@@ -6,6 +6,7 @@ namespace Yuki61803\exchange1c\models;
 
 use Yuki61803\exchange1c\helpers\ClassHelper;
 use Yuki61803\exchange1c\helpers\ModuleHelper;
+use yii\helpers\ArrayHelper;
 
 class TestingClass extends Testing
 {
@@ -33,7 +34,8 @@ class TestingClass extends Testing
             } else {
                 $methodResult = call_user_func([$context, $method]);
             }
-            switch ($rule['return']) {
+
+            switch (ArrayHelper::getValue($rule, 'return')) {
                 case "array":
                     if (!is_array($methodResult)) {
                         $test->result = false;
@@ -56,7 +58,7 @@ class TestingClass extends Testing
                     $test->comment = 'FAIL';
                     $test->result = false;
             }
-        } elseif ($rule['required']) {
+        } elseif (ArrayHelper::getValue($rule, 'required')) {
             $test->result = false;
             $test->comment = 'Метод не реализован';
         }

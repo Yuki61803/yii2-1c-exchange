@@ -18,6 +18,10 @@ class ExchangeModule extends \yii\base\Module
      */
     public $productClass;
     /**
+     * @var \Yuki61803\exchange1c\interfaces\OfferInterface
+     */
+    public $offerClass;
+    /**
      * @var \Yuki61803\exchange1c\interfaces\DocumentInterface
      */
     public $documentClass;

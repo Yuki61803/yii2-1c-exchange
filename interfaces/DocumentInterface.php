@@ -6,10 +6,11 @@ namespace Yuki61803\exchange1c\interfaces;
 
 use yii\db\ActiveRecordInterface;
 
-interface DocumentInterface extends ActiveRecordInterface, FieldsInterface, RawInterface
+interface DocumentInterface extends ActiveRecordInterface, FieldsInterface, RawInterface, ExportFieldsInterface
 {
     /**
      * Список заказов с сайта
+     *
      *
      * @return DocumentInterface[]
      */

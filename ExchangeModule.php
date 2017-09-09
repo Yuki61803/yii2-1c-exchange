@@ -34,6 +34,11 @@ class ExchangeModule extends \yii\base\Module
      */
     public $partnerClass;
     /**
+     * @var \Yuki61803\exchange1c\interfaces\WarehouseInterface
+     */
+    public $warehouseClass;
+
+    /**
      * Обмен документами
      *
      * @var bool

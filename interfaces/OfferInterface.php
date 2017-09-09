@@ -4,8 +4,9 @@
 namespace Yuki61803\exchange1c\interfaces;
 
 
+use yii\db\ActiveRecordInterface;
 
-interface OfferInterface extends ExportFieldsInterface
+interface OfferInterface extends ActiveRecordInterface, FieldsInterface, ExportFieldsInterface, IdentifierInterface
 {
     /**
      * @return GroupInterface

@@ -10,7 +10,7 @@ use Zenwalker\CommerceML\Model\PropertyCollection;
  *
  * @package Yuki61803\exchange1c\interfaces
  */
-interface ProductInterface extends ActiveRecordInterface, FieldsInterface
+interface ProductInterface extends ActiveRecordInterface, FieldsInterface, IdentifierInterface
 {
     /**
      * Если по каким то причинам файлы import.xml или offers.xml были модифицированы и какие то данные

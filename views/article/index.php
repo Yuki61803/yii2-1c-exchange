@@ -2,6 +2,7 @@
 
 use Yuki61803\exchange1c\models\Article;
 use yii\widgets\Menu;
+use Yuki61803\exchange1c\widgets\Panel;
 
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider
@@ -9,4 +10,9 @@ use yii\widgets\Menu;
  */
 $this->title = 'Документация по работе модуля';
 $items = Article::formMenuItems();
-echo Menu::widget(['items' => $items, 'options' => ['class' => 'article-menu']]);
+Panel::begin();
+echo Menu::widget([
+    'items' => $items,
+    'options' => ['class' => 'article-menu']
+]);
+Panel::end();

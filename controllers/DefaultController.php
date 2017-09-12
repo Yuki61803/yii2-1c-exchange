@@ -4,11 +4,14 @@
 namespace Yuki61803\exchange1c\controllers;
 
 
-use Yuki61803\exchange1c\models\Article;
 use yii\data\ArrayDataProvider;
 use yii\helpers\FileHelper;
-use yii\helpers\Html;
 
+/**
+ * Class DefaultController
+ *
+ * @package Yuki61803\exchange1c\controllers
+ */
 class DefaultController extends Controller
 {
     public function actionIndex()

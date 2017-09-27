@@ -4,8 +4,9 @@
   "type": "yii2-extension",
   "authors": [
     {
-      "name": "Yuki61803",
-      "email": "info@Yuki61803.ru"
+      "name": "Aleksandr Kasyanov",
+      "email": "info@Yuki61803.ru",
+      "homepage": "http://Yuki61803.ru"
     }
   ],
   "require": {

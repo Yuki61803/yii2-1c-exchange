@@ -7,6 +7,7 @@ namespace Yuki61803\exchange1c;
 use Yuki61803\exchange1c\helpers\ModuleHelper;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
+use Yii;
 
 class Bootstrap implements BootstrapInterface
 {
@@ -19,8 +20,9 @@ class Bootstrap implements BootstrapInterface
     public function bootstrap($app)
     {
         if ($id = ModuleHelper::getModuleNameByClass()) {
-            if (\Yii::$app->getModule($id)->bootstrapUrlRule) {
-                \Yii::$app->urlManager->addRules([new UrlRule]);
+            if (Yii::$app->getModule($id)->bootstrapUrlRule) {
+                Yii::$app->urlManager->enablePrettyUrl = true;
+                Yii::$app->urlManager->addRules([new UrlRule]);
             }
         }
     }

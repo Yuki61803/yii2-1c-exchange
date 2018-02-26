@@ -7,7 +7,7 @@ namespace Yuki61803\exchange1c\interfaces;
 interface ExportFieldsInterface
 {
     /**
-     * @param null $context
+     * @param mixed|null $context
      * @return array
      */
     public function getExportFields1c($context = null);

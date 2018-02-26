@@ -8,7 +8,7 @@ class ModuleHelper
 {
     /**
      * @param string $class
-     * @param null $default
+     * @param string|null $default
      * @return int|null|string
      */
     public static function getModuleNameByClass($class = 'Yuki61803\exchange1c\ExchangeModule', $default = null)

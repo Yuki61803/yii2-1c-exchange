@@ -2,8 +2,6 @@
 
 use yii\grid\GridView;
 use yii\data\ArrayDataProvider;
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
 use Yuki61803\exchange1c\models\InterfaceTest;
 use Yuki61803\exchange1c\models\InterfaceModel;
 use Yuki61803\exchange1c\helpers\ClassHelper;

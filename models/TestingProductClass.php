@@ -3,6 +3,8 @@
 
 namespace Yuki61803\exchange1c\models;
 
+use Yuki61803\exchange1c\interfaces\GroupInterface;
+use Yuki61803\exchange1c\interfaces\OfferInterface;
 use Yuki61803\exchange1c\interfaces\ProductInterface;
 
 /**
@@ -33,26 +35,26 @@ class TestingProductClass extends TestingClass
     {
         return [
             'getIdFieldName1c' => [
-                'return' => 'string',
+                'return' => self::RETURN_STRING,
                 'auto' => true
             ],
             'createModel1c' => [
-                'return' => 'interface',
-                'value' => '\Yuki61803\exchange1c\interfaces\ProductInterface',
+                'return' => self::RETURN_INTERFACE,
+                'value' => ProductInterface::class,
                 'params' => ['cml.catalog.products.0']
             ],
             'getOffer1c' => [
-                'return' => 'interface',
-                'value' => '\Yuki61803\exchange1c\interfaces\OfferInterface',
+                'return' => self::RETURN_INTERFACE,
+                'value' => OfferInterface::class,
                 'params' => ['cml.offerPackage.offers.0']
             ],
             'setGroup1c' => [
-                'return' => '',
+                'return' => false,
                 'params' => ['cml.catalog.products.0.group']
             ],
             'getGroup1c' => [
-                'return' => 'interface',
-                'value' => '\Yuki61803\exchange1c\interfaces\GroupInterface'
+                'return' => self::RETURN_INTERFACE,
+                'value' => GroupInterface::class
             ]
         ];
     }

@@ -18,30 +18,41 @@ class ExchangeModule extends \yii\base\Module
      */
     public $controllerNamespace = 'Yuki61803\exchange1c\controllers';
     /**
+     * Модель продукта
+     *
      * @var \Yuki61803\exchange1c\interfaces\ProductInterface
      */
     public $productClass;
     /**
+     * Модель предложения
+     *
      * @var \Yuki61803\exchange1c\interfaces\OfferInterface
      */
     public $offerClass;
     /**
+     * Модель документа
+     *
      * @var \Yuki61803\exchange1c\interfaces\DocumentInterface
      */
     public $documentClass;
     /**
+     * Модель группы продукта
+     *
      * @var \Yuki61803\exchange1c\interfaces\GroupInterface
      */
     public $groupClass;
     /**
+     * Модель пользователя
+     *
      * @var \Yuki61803\exchange1c\interfaces\PartnerInterface
      */
     public $partnerClass;
     /**
+     * Модель склада
+     *
      * @var \Yuki61803\exchange1c\interfaces\WarehouseInterface
      */
     public $warehouseClass;
-
     /**
      * Обмен документами
      *
@@ -60,6 +71,11 @@ class ExchangeModule extends \yii\base\Module
      * @var bool
      */
     public $useZip = true;
+    /**
+     * Папка, где будут сохранятся временные файлы
+     *
+     * @var string
+     */
     public $tmpDir = '@runtime/1c_exchange';
     /**
      * При сохранении товара, используем валидацию или нет
@@ -67,10 +83,31 @@ class ExchangeModule extends \yii\base\Module
      * @var bool
      */
     public $validateModelOnSave = false;
+    /**
+     * Установка лимита выполнения скрипта
+     *
+     * @var int
+     */
     public $timeLimit = 1800;
-    public $memoryLimit = null;
+    /**
+     * Установка лимита памяти скрипта
+     *
+     * @var mixed
+     */
+    public $memoryLimit;
+    /**
+     * Автоматическая установка правила для ссылки /1c_exchange.php
+     *
+     * @var bool
+     */
     public $bootstrapUrlRule = true;
     public $redactorModuleName = 'Yuki61803-exchange-redactor';
+    /**
+     * Функция авторизации пользователя
+     * function ($login, $password): \yii\web\IdentityInterface|null
+     *
+     * @var \Closure
+     */
     public $auth;
 
     private function loadRedactorModule()
